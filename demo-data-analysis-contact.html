@@ -40,6 +40,10 @@
                 // these IDs from the previous steps
                 emailjs.sendForm('service_y0wbz1j', 'template_qhb9rns', this)
                     .then(() => {
+                        // Show the success alert
+                        let alertBox = document.getElementById('success-alert');
+                        alertBox.classList.remove('d-none');  // Make it visible
+                        this.reset(); // Clear form fields
                         console.log('SUCCESS!');
                     }, (error) => {
                         console.log('FAILED...', error);
@@ -51,6 +55,13 @@
 
 <body data-mobile-nav-style="full-screen-menu" data-mobile-nav-bg-color="#353642"
     class="custom-cursor overflow-x-hidden">
+    <!-- Success Alert Box (Initially Hidden) -->
+    <div id="success-alert" class="alert alert-success alert-dismissable d-none">
+        <a href="#" class="close float-end" data-bs-dismiss="alert" aria-label="close">
+            <i class="fa-solid fa-xmark"></i>
+        </a>
+        <strong>Success!</strong> Email sent successfully.
+    </div>
     <!-- start cursor -->
     <div class="cursor-page-inner">
         <div class="circle-cursor circle-cursor-inner"></div>
